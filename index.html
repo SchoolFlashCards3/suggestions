@@ -6,197 +6,74 @@
     <title>Game Suggestions - SFC Unblocked Games</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
             padding: 20px;
-            background-color: white;
-            border-radius: 8px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 5px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        
         h1 {
-            color: #2c3e50;
             text-align: center;
-            margin-bottom: 30px;
+            color: #333;
         }
-        
-        .intro {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #eaf2f8;
-            border-radius: 5px;
-        }
-        
-        form {
-            margin-top: 30px;
-        }
-        
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
-        
         label {
             display: block;
             margin-bottom: 5px;
-            font-weight: bold;
         }
-        
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
+        input[type="text"] {
             width: 100%;
-            padding: 10px;
+            padding: 8px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 16px;
         }
-        
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-        
         button {
-            background-color: #3498db;
+            background: #4285f4;
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
+            padding: 10px 15px;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            width: 100%;
         }
-        
         button:hover {
-            background-color: #2980b9;
-        }
-        
-        .game-list {
-            margin-top: 30px;
-        }
-        
-        .game-list h3 {
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 5px;
-        }
-        
-        .game-list ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        
-        .game-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .thank-you {
-            display: none;
-            text-align: center;
-            padding: 20px;
-            background-color: #d5f5e3;
-            border-radius: 5px;
-            margin-top: 20px;
+            background: #3367d6;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Game Suggestions</h1>
-        
-        <div class="intro">
-            <p>We value your input! Use this form to suggest new games you'd like to see on our unblocked games website. Please provide as much detail as possible about the game you're suggesting.</p>
-            <p>Note: We prioritize adding games that are school/work-friendly and can be played without downloads.</p>
-        </div>
-        
+        <h1>Suggest a Game</h1>
         <form id="suggestionForm">
             <div class="form-group">
                 <label for="name">Your Name (Optional):</label>
-                <input type="text" id="name" name="name" placeholder="John Doe">
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Your Email (Optional - for follow up):</label>
-                <input type="email" id="email" name="email" placeholder="your@email.com">
+                <input type="text" id="name" name="name">
             </div>
             
             <div class="form-group">
                 <label for="game-name">Game Name:*</label>
-                <input type="text" id="game-name" name="game-name" required placeholder="e.g., Slope, Minecraft Classic">
+                <input type="text" id="game-name" name="game-name" required>
             </div>
             
-            <div class="form-group">
-                <label for="game-type">Game Type:*</label>
-                <select id="game-type" name="game-type" required>
-                    <option value="">Select a category</option>
-                    <option value="action">Action</option>
-                    <option value="adventure">Adventure</option>
-                    <option value="puzzle">Puzzle</option>
-                    <option value="sports">Sports</option>
-                    <option value="strategy">Strategy</option>
-                    <option value="arcade">Arcade</option>
-                    <option value="multiplayer">Multiplayer</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-            
-            <div class="form-group">
-                <label for="game-description">Why should we add this game?*</label>
-                <textarea id="game-description" name="game-description" required placeholder="Tell us about the game, why it's fun, and why it would be good for our site..."></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="game-url">Game URL (if available):</label>
-                <input type="text" id="game-url" name="game-url" placeholder="https://example.com/game">
-            </div>
-            
-            <button type="submit">Submit Suggestion</button>
+            <button type="submit">Submit</button>
         </form>
-        
-        <div class="thank-you" id="thankYou">
-            <h3>Thank You!</h3>
-            <p>Your game suggestion has been received. We'll review it and consider adding it to our collection.</p>
-        </div>
-        
-        <div class="game-list">
-            <h3>Recently Added Games (Based on Your Suggestions)</h3>
-            <ul>
-                <li>Slope</li>
-                <li>Cookie Clicker</li>
-                <li>Tunnel Rush</li>
-                <li>1v1.LOL</li>
-                <li>Paper.io 2</li>
-            </ul>
-            <p>Keep the suggestions coming!</p>
-        </div>
     </div>
-    
+
     <script>
         document.getElementById('suggestionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // In a real implementation, you would send the form data to your server here
-            // For this example, we'll just show the thank you message
-            
-            document.getElementById('suggestionForm').style.display = 'none';
-            document.getElementById('thankYou').style.display = 'block';
-            
-            // Optional: Reset form after delay
-            setTimeout(function() {
-                document.getElementById('suggestionForm').reset();
-                document.getElementById('suggestionForm').style.display = 'block';
-                document.getElementById('thankYou').style.display = 'none';
-            }, 5000);
+            alert('Thank you for your suggestion!');
+            this.reset();
         });
     </script>
 </body>
