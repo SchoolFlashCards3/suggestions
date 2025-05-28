@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Game Suggestions - SFC Unblocked Games</title>
-    <style>
+ <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -49,12 +49,20 @@
         button:hover {
             background: #3367d6;
         }
+        .thank-you {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #d5f5e3;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Suggest a Game</h1>
-        <form id="suggestionForm">
+        <form id="suggestionForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
             <div class="form-group">
                 <label for="name">Your Name (Optional):</label>
                 <input type="text" id="name" name="name">
@@ -65,15 +73,46 @@
                 <input type="text" id="game-name" name="game-name" required>
             </div>
             
+            <!-- Formspree hidden fields (optional) -->
+            <input type="hidden" name="_subject" value="New Game Suggestion">
+            <input type="hidden" name="_next" value="https://yourwebsite.com/thank-you.html">
+            
             <button type="submit">Submit</button>
         </form>
+        
+        <div class="thank-you" id="thankYou">
+            <h3>Thank You!</h3>
+            <p>Your game suggestion has been received.</p>
+        </div>
     </div>
 
     <script>
         document.getElementById('suggestionForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            alert('Thank you for your suggestion!');
-            this.reset();
+            
+            // Show thank you message
+            document.getElementById('thankYou').style.display = 'block';
+            
+            // Submit the form to Formspree
+            fetch(this.action, {
+                method: 'POST',
+                body: new FormData(this),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Reset form on success
+                    this.reset();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('There was a problem submitting your suggestion. Please try again.');
+            });
         });
     </script>
 </body>
