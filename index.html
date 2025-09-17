@@ -62,15 +62,20 @@
 <body>
     <div class="container">
         <h1>Suggest a Game</h1>
-        <h2>PLEASE BE REASONABLE. I will say this for the final time, we are NOT adding roblox, be reasonable. You cant even play roblox on roblox.com so why would we be able to?</h2>
+        <h2>Im gonna keep it short, be reasonable. Request existing games, we aren't spending months and years making a new game.</h2>
         <form id="suggestionForm" action="https://formspree.io/f/xgvkgkyl" method="POST">
             <div class="form-group">
-                <label for="name">Your Name (Optional):</label>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name">
+            </div>
+
+             <div class="form-group">
+                <label for="name">Your Email:</label>
                 <input type="text" id="name" name="name">
             </div>
             
             <div class="form-group">
-                <label for="game-name">Game Name:*</label>
+                <label for="game-name">Game Name:</label>
                 <input type="text" id="game-name" name="game-name" required>
             </div>
             
@@ -83,7 +88,7 @@
         
         <div class="thank-you" id="thankYou">
             <h3>Thank You!</h3>
-            <p>Your game suggestion has been received.</p>
+            <p>Your game suggestion has been received. We will review and email you about it later.</p>
         </div>
     </div>
 
